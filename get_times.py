@@ -11,7 +11,7 @@ def get_times(threshold=0.0):
         info = time_file.readlines()[1:]
 
     for pos in xrange(0, len(info) - 1, 3):
-        name_info = info[pos][3:-2]
+        name_info = info[pos][3:-2].strip('()')
         time_info = float(info[pos+2][1:])
         if time_info >= threshold:
             yield (name_info, time_info)
